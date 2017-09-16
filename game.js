@@ -12,13 +12,17 @@ var Game = {
 
 function initializeHackers(n) {
   for (i = 0; i < n; ++i) {
-    Game.hackers.push(Hacker);
+    // In JS, objects are passed as pointers. So we have to string then parse
+    // the Object to create a new reference
+    const newHacker = JSON.parse(JSON.stringify(Hacker));
+    Game.hackers.push(newHacker);
+    id = i + 1;
   }
   document.getElementById('hackerInitialization').style.display = 'none';
-  console.log(Game);
 };
 
-function clickedHacker(hacker) {
-    hacker.productivity = hacker.productivity + 10;
-    alert(hacker.productivity);
+function clickedHacker(id, element, increment) {
+    hacker = Game.hackers[id];
+    hacker[element] = hacker[element] + increment;
+    alert(hacker[element]);
 };
