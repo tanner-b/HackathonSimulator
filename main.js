@@ -3,29 +3,29 @@ var ctx; //Canvas draw context
 var lastTime; //Time of last frame
 var milliSecondCounter = 0; //Counts milliseconds, used for fps counter
 var deltaTime = 0; //Stores the difference in time
-var W = 800, H = 600; //Canvas dimensions
 var fps = 0; //Counts fps every update step
 var requestAnimFrame =  window.requestAnimationFrame ||
                         window.webkitRequestAnimationFrame ||
                         window.mozRequestAnimationFrame ||
                         window.msRequestAnimationFrame;
-var shapeX = 10, shapeY = 10;
-var speed = 12; //Pixels per second
-var hackerList = [];
 
-function update(dt) {
-  //Update scene here
-  shapeX += speed * dt;
-  shapeY += speed * dt;
+var game;
+
+var shapeX = UNIT, shapeY = UNIT * 2;
+var speed = 1; //Units per second
+
+function update() {
+  game.update();
 }
 
 function draw() {
-  ctx.fillStyle = "#FFFFFF";
-  ctx.fillRect(0, 0, W, H);
+  //Clear the screen
+  ctx.fillStyle = "#FF00FF";
+  ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
   //Draw other things
-  ctx.fillStyle = "#000000";
-  ctx.fillRect(shapeX, shapeY, 100, 200);
+  //ctx.fillStyle = "#000000";
+  //ctx.fillRect(shapeX, shapeY, UNIT, UNIT);
 
 }
 
@@ -43,7 +43,7 @@ function main() {
   }
 
   //Update then draw
-  update(deltaTime / 1000); //Pass seconds not milliseconds  eg. (100ms -> 0.1s)
+  //update(deltaTime / 1000); //Pass seconds, not milliseconds  eg. (100ms -> 0.1s)
   draw();
 
   lastTime = now;
@@ -54,8 +54,11 @@ function init() {
   c = document.getElementById("canvas");
   ctx = canvas.getContext("2d");
   //Set canvas dimestions to specified width and height
-  c.width = W;
-  c.height = H;
+  c.width = WIDTH;
+  c.height = HEIGHT;
+
+  game = new Game();
+  game.init();
 
   //Create an image buffer to draw pixel data
   lastTime = Date.now();
@@ -65,8 +68,4 @@ function init() {
 window.onload = function () {
     console.log("Page loaded and script running")
     init();
-}
-
-function clicked() {
-    alert("clicked");
 }
