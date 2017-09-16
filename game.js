@@ -1,23 +1,34 @@
 var events = [];
-var Game = {
-  hour: 0,
-  hackers: [],
-  update: function(dt){
-
-  },
-  draw: function(){
+var app = {
+  name: "",
+  progress: 0
+};
+var Game = function() {
+  this.hour = 0;
+  this.hackers = [];
+  this.init = function(n) {
+    const hackerArray = [];
+    for (i = 0; i < n; ++i) {
+      hackerArray.push(new Hacker(i.toString()));
+    }
+    this.hackers = hackerArray;
+    document.getElementById("buttonSpace").innerHTML = generateHTMLTable("buttonSpace", this.hackers.length);
+  }
+  this.update = function() {
+    this.hour++;
+    this.hackers.forEach(function(h) {
+      h.update();
+    });
+    //Generate the buttons for actions
+    document.getElementById("buttonSpace").innerHTML = generateHTMLTable("buttonSpace", this.hackers.length);
+  }
+  this.draw = function() {
 
   }
 };
 
 function initializeHackers(n) {
-  for (i = 0; i < n; ++i) {
-    // In JS, objects are passed as pointers. So we have to string then parse
-    // the Object to create a new reference
-    const newHacker = JSON.parse(JSON.stringify(Hacker));
-    Game.hackers.push(newHacker);
-    id = i + 1;
-  }
+  game.init(n);
   document.getElementById('hackerInitialization').style.display = 'none';
 };
 
