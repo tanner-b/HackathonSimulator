@@ -4,25 +4,30 @@
       body {
         background-color: grey;
       }
-    </style>
+  </style>
     <script type="text/javascript" src="main.js"></script>
-    <script type="text/javascript" src="game.js"></script>
     <script type="text/javascript" src="hacker.js"></script>
+    <script type="text/javascript" src="game.js"></script>
     <script type="text/javascript" src="utils.js"></script>
 
   </head>
-  <body align = "center">
+  <body align="center">
     <div id = "gameWindow">
       <canvas id="canvas">
         If you are reading this it means that your browser does not have javascript support
       </canvas>
     </div>
     <div id = "descriptionSpace">
-      <p>This is text<p>
+      <p>This is text</p>
     </div>
 
-    <div id = "buttonspace">
-      <button type="submit" onclick="clicked();"> Click me </button>
+    <div id = "hackerInitialization">
+        <input type="number" id="numberOfHackers" min="1" max="4" value="4"/>
+        <button type="submit" onclick="initializeHackers(document.getElementById('numberOfHackers').value);"> Create Hackers </button>
+    </div>
+
+    <div id = "editspace">
+        <button type="submit" onclick="clickedHacker(Game.hackers[0]);"> Click me </button>
     </div>
 
   </body>

@@ -11,6 +11,7 @@ var requestAnimFrame =  window.requestAnimationFrame ||
                         window.msRequestAnimationFrame;
 var shapeX = 10, shapeY = 10;
 var speed = 12; //Pixels per second
+var hackerList = [];
 
 function update(dt) {
   //Update scene here
@@ -19,7 +20,6 @@ function update(dt) {
 }
 
 function draw() {
-  //Clear the screen
   ctx.fillStyle = "#FFFFFF";
   ctx.fillRect(0, 0, W, H);
 
@@ -68,5 +68,5 @@ window.onload = function () {
 }
 
 function clicked() {
-  alert("clciked");
+    alert("clicked");
 }
