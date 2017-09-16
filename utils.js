@@ -1,6 +1,13 @@
 function generateHTMLTable (divID, numPlayers) {
-    var HTMLCode = "<table align =\"center\" border = \"1\" width =\"" + WIDTH + "\">";
+    var HTMLCode = "<table align =\"center\" border = \"0\" width =\"" + WIDTH + "\">";
     HTMLCode += "<tr>";
+
+    //names
+    for (var i = 0; i < numPlayers; i++) {
+      HTMLCode += "<td align=\"center\">" + game.hackers[i].name + "</td>";
+    }
+    HTMLCode += "</tr><tr>";
+
     //code
     for (var i = 0; i < numPlayers; i++) {
       HTMLCode += "<td align=\"center\"><button type = \"submit\" onclick = 'game.hackers[" + i + "].code(); document.getElementById(\"" + divID + "\").innerHTML = generateHTMLTable(\"" + divID + "\", " + numPlayers + ");'";
