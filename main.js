@@ -58,7 +58,6 @@ function init() {
   c.height = HEIGHT;
 
   game = new Game();
-  game.init();
 
   //Create an image buffer to draw pixel data
   lastTime = Date.now();
