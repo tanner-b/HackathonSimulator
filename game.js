@@ -20,7 +20,6 @@ Game = function() {
     const hackerArray = [];
     for (i = 0; i < n; ++i) {
       hackerArray.push(new Hacker(randomizeName()));
-      console.log(hackerArray[i].colour)
     }
     this.hackers = hackerArray;
     document.getElementById("buttonSpace").innerHTML = generateHTMLTable("buttonSpace", this.hackers.length);

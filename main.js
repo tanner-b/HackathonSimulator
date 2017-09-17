@@ -13,6 +13,7 @@ var game;
 
 function update() {
   game.update();
+  updateEventText();
 }
 
 function draw() {
