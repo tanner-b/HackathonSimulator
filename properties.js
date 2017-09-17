@@ -1,6 +1,6 @@
 //Canvas dimensions
 var ASPECT_RATIO = 8/6;
-var WIDTH = 400;
+var WIDTH = 600;
 var HEIGHT = WIDTH / ASPECT_RATIO;
 
 //In game unit (metres) independent of canvas resolution

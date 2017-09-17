@@ -21,9 +21,10 @@ function update() {
 
 function draw() {
   //Clear the screen
-  ctx.fillStyle = "#FF00FF";
+  ctx.fillStyle = "#FFFFFF";
   ctx.fillRect(0, 0, WIDTH, HEIGHT);
-
+  ctx.font = UNIT + "px fantasy";
+  game.draw();
   //Draw other things
   //ctx.fillStyle = "#000000";
   //ctx.fillRect(shapeX, shapeY, UNIT, UNIT);
