@@ -16,6 +16,7 @@ var speed = 1; //Units per second
 
 function update() {
   game.update();
+  updateEventText();
 }
 
 function draw() {

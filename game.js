@@ -1,4 +1,3 @@
-var events = [];
 var app = {
   name: "",
   progress: 0
@@ -29,6 +28,7 @@ var Game = function() {
 
 function initializeHackers(n) {
   game.init(n);
+  updateEventText();
   app.name = document.getElementById('nameOfHack').value;
   document.getElementById('hackerInitialization').style.display = 'none';
 };
