@@ -4,7 +4,7 @@ function generateHTMLTable (divID, numPlayers) {
 
     //names
     for (var i = 0; i < numPlayers; i++) {
-      HTMLCode += "<td align=\"center\">" + game.hackers[i].name + "</td>";
+      HTMLCode += "<td align=\"center\" bgcolor = \"" + game.hackers[i].colour + "\">" + game.hackers[i].name + "</td>";
     }
     HTMLCode += "</tr><tr>";
 
