@@ -2,7 +2,7 @@ var Hacker = function(name) {
   this.name = name;
   this.colour = "";
   this.tiredness = 0;
-  this.enthusiasm = 0;
+  this.enthusiasm = 5;
   this.hunger = 0;
   this.needsAction = true;
   this.isSleeping = false;
@@ -11,7 +11,7 @@ var Hacker = function(name) {
     this.tiredness++;
     this.hunger++;
     this.enthusiasm--;
-    if (this.hunger > 10 || this.tiredness > 10) {
+    if (this.hunger > 5 || this.tiredness > 5) {
       this.enthusiasm--;
     }
     if (this.enthusiasm < 1) {
@@ -27,13 +27,15 @@ var Hacker = function(name) {
   this.code = function() {
     //code
     //Further the progress of your app based on your enthusiasm
-    app.progress += this.enthusiasm;
+    //anythuing
+    game.app.progressBar.value += this.enthusiasm;
+    this.tiredness++;
     this.needsAction = false;
 
   };
   this.goToEvent = function() {
     //Go to event
-    this.enthusiasm += 8;
+    this.enthusiasm += 5;
     this.needsAction = false;
   };
   this.eat = function() {

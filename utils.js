@@ -48,3 +48,42 @@ function generateHTMLTable (divID, numPlayers) {
     HTMLCode += "</tr></table>";
     return HTMLCode;
 }
+var Rect = function(x, y, width, height) {
+  this.x = x;  this.y = y;
+  this.width = width;  this.height = height;
+
+  this.collides = function(otherRect) {
+
+    if (Math.abs(this.x - otherRect.x) < this.width) {
+
+      if (Math.abs(this.y - otherRect.y) < this.height) {
+        return true;
+      } else {
+        return false;
+      }
+
+    }
+
+  };
+}
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+var Bar = function(x, y, width, height, currentValue, maxValue, bgColour, fgColour) {
+  this.x = x;
+  this.y = y;
+  this.width = width;
+  this.height = height;
+  this.value = currentValue;
+  this.maxValue = maxValue;
+
+  this.backgroundColour = bgColour;
+  this.foregroundColour = fgColour;
+
+  this.draw = function() {
+    ctx.fillStyle = this.backgroundColour;
+    ctx.fillRect((this.x - this.width/2) * UNIT, (this.y - this.height/2) * UNIT, this.width * UNIT, this.height * UNIT);
+    ctx.fillStyle = this.foregroundColour;
+    ctx.fillRect((this.x - this.width/2) * UNIT, (this.y - this.height/2) * UNIT, this.width * (this.value/this.maxValue) * UNIT, this.height * UNIT);
+  }
+}
