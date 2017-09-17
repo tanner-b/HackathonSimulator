@@ -11,9 +11,6 @@ var requestAnimFrame =  window.requestAnimationFrame ||
 
 var game;
 
-var shapeX = UNIT, shapeY = UNIT * 2;
-var speed = 1; //Units per second
-
 function update() {
   game.update();
   updateEventText();
@@ -60,6 +57,7 @@ function init() {
   c.height = HEIGHT;
 
   game = new Game();
+  state = STATES.stopped;
 
   //Create an image buffer to draw pixel data
   lastTime = Date.now();

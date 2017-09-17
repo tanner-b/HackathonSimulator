@@ -1,11 +1,10 @@
 var Hacker = function(name) {
   this.name = name;
-  this.colour = "";
-  this.tiredness = 0;
-  this.enthusiasm = 5;
-  this.hunger = 0;
+  this.colour = "#"+ getRandomInt(6, 9).toString() + getRandomInt(6, 9).toString() + getRandomInt(6, 9).toString() + getRandomInt(6, 9).toString() + getRandomInt(6, 9).toString() + getRandomInt(6, 9).toString();
+  this.tiredness = getRandomInt(0, 4);
+  this.enthusiasm = getRandomInt(3, 5);
+  this.hunger = getRandomInt(0,7);
   this.needsAction = true;
-  this.isSleeping = false;
   this.update = function() {
     this.needsAction = true;
     this.tiredness++;
