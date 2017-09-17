@@ -1,5 +1,4 @@
 var events = [];
-var hackerNames = ['Sally', 'Tanner', 'Jeff', 'Jim']
 var app = {
   name: "",
   progress: 0
@@ -10,7 +9,7 @@ var Game = function() {
   this.init = function(n) {
     const hackerArray = [];
     for (i = 0; i < n; ++i) {
-      hackerArray.push(new Hacker(hackerNames[i]));
+      hackerArray.push(new Hacker(randomizeName()));
     }
     this.hackers = hackerArray;
     document.getElementById("buttonSpace").innerHTML = generateHTMLTable("buttonSpace", this.hackers.length);
@@ -30,6 +29,7 @@ var Game = function() {
 
 function initializeHackers(n) {
   game.init(n);
+  app.name = document.getElementById('nameOfHack').value;
   document.getElementById('hackerInitialization').style.display = 'none';
 };
 
